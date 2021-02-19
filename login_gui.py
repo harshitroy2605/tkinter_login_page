@@ -58,14 +58,14 @@ class Login_Form(Tk):
 		self.Button.place(x=268,y=350)
 
 	def Facebook_Function(self):
-		print("rhyt")
+		print("facebook link inserted here")
 
 
 	def Instagram_Function(self):
-		print("regyre")
+		print("instagram link inserted here")
 
 	def Twitter_Function(self):
-		print("rgyre")
+		print("twitter link inserted here")
 
 	def Execute_Function(self):
 		print("er4hyg")
