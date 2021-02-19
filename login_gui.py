@@ -1,74 +1,80 @@
 from tkinter import *
-#from PIL import Image, ImageTk
-
-root=Tk()
-
-root.geometry("700x600")
-root.resizable(False, False)
-
-
-def execute_function():
-	print("function which will be executed after the button click")
-
-
-def instagram_function():
-	print("this function is executed when instagram button is pressed ")
-
-
-def facebook_function():
-	print("this function is executed when facebook button is executed")
-
-def twitter_function():
-	print("this function is executed when twitter butoon is executed")
 
 
 
-background_img=PhotoImage(file='background_img.png')
+class Login_Form(Tk):
+	def __init__(self):
+		super().__init__()
+		self.geometry("700x600")
+		self.resizable(False, False)
+
+	def Labels(self):
+		self.Background_Image=PhotoImage(file='background_img.png')
+
+		self.Background_Image_Label=Label(self,image=self.Background_Image)   #Background image
+		self.Background_Image_Label.place(x=0,y=0,relwidth=1,relheight=1)
+		
+		self.canvas=Canvas(self, width=400, height=450)                       #backgrounf canvas
+		self.canvas.place(x=150,y=60)
+		
+		self.Login_Title=Label(self,text="Login",font="bold, 30")             #login Title on Top
+		self.Login_Title.place(x=300,y=90)
+		
+		self.User_Name_Label=Label(self,text="Email",font="8")                 #User Name Label
+		self.User_Name_Label.place(x=200,y=150)
+
+		self.Password_label=Label(self,text="Password",font="8")               #Password Label
+		self.Password_label.place(x=200,y=250)
+
+
+	def Entry(self):
+		self.User_Name=Text(self, borderwidth=0, highlightthickness=0, wrap="word",width=29, height=2)
+		self.User_Name.place(x=200,y=185)
+
+
+		self.Password=Entry(self, borderwidth=0,show='*', highlightthickness=0)
+		self.Password.place(x=200,y=285,width=235,height=33)
 
 
 
-background_image_label =Label(root,image=background_img)
-
-background_image_label.place(x=0,y=0,relwidth=1,relheight=1)
-
-canvas =Canvas(root, width=400, height=450)
-canvas.place(x=150,y=60)
-
-login_title=Label(root,text="Login",font="bold, 30")
-login_title.place(x=300,y=90)
+	def Buttons(self):
+		self.Facebook_Button_Image=PhotoImage(file="facebook.png")
+		self.Facebook_Button=Button(self,image=self.Facebook_Button_Image,command=self.Facebook_Function,border=0)
+		self.Facebook_Button.place(x=278,y=440)
 
 
-user_name_label=Label(root,text="Email",font="8")
-user_name_label.place(x=200,y=150)
-
-user_name=Text(root, borderwidth=0, highlightthickness=0, wrap="word",width=29, height=2)
-user_name.place(x=200,y=185)
+		self.Instagram_Button_Image=PhotoImage(file="instagram.png")
+		self.Instagram_Button=Button(self,image=self.Instagram_Button_Image,command=self.Instagram_Function,border=0)
+		self.Instagram_Button.place(x=328,y=440)
 
 
-
-password_label=Label(root,text="Password",font="8")
-password_label.place(x=200,y=250)
-
-password=Entry(root, borderwidth=0,show='*', highlightthickness=0)
-password.place(x=200,y=285,width=235,height=33)
+		self.Twitter_Button_Image=PhotoImage(file="twitter.png")
+		self.Twitter_Button=Button(self,image=self.Twitter_Button_Image,command=self.Twitter_Function,border=0)
+		self.Twitter_Button.place(x=380,y=440)
 
 
+		self.Button_Image=PhotoImage(file="button.png")
+		self.Button=Button(self,image=self.Button_Image,command=self.Execute_Function,border=0)
+		self.Button.place(x=268,y=350)
 
-facebook_button_image=PhotoImage(file="facebook.png")
-facebook_button=Button(root,image=facebook_button_image,command=facebook_function,border=0)
-facebook_button.place(x=278,y=440)
+	def Facebook_Function(self):
+		print("rhyt")
 
 
-instagram_button_image=PhotoImage(file="instagram.png")
-instagram_button=Button(root,image=instagram_button_image,command=instagram_function,border=0)
-instagram_button.place(x=328,y=440)
+	def Instagram_Function(self):
+		print("regyre")
 
-twitter_button_image=PhotoImage(file="twitter.png")
-twitter_button=Button(root,image=twitter_button_image,command=twitter_function,border=0)
-twitter_button.place(x=380,y=440)
+	def Twitter_Function(self):
+		print("rgyre")
 
-button_image=PhotoImage(file="button.png")
-button=Button(root,image=button_image,command=execute_function,border=0)
-button.place(x=268,y=350)
+	def Execute_Function(self):
+		print("er4hyg")
 
-root.mainloop()
+
+
+if __name__=="__main__":
+	window=Login_Form()
+	window.Labels()
+	window.Entry()
+	window.Buttons()
+	window.mainloop()
